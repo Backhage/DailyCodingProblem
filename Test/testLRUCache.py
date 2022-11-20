@@ -20,3 +20,14 @@ class TestLRUCache(unittest.TestCase):
 
         self.assertIsNone(cache.get("a"))
         self.assertEqual(cache.get("d"), 4)
+
+    def test_LeetCodeExample(self):
+        cache = LRUCache(2)
+
+        cache.set(2, 1)
+        cache.set(1, 1)
+        cache.set(2, 3)
+        cache.set(4, 1)
+
+        self.assertIsNone(cache.get(1))
+        self.assertEqual(cache.get(2), 3)

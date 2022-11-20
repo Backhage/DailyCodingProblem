@@ -10,7 +10,7 @@ class LRUCache:
 
     def set(self, key, val):
         if key in self.dict:
-            del self.dict[key]
+            self.list.remove(self.dict[key])
 
         n = Node(key, val)
         self.list.add(n)
