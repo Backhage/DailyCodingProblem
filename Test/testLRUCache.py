@@ -16,6 +16,7 @@ class TestLRUCache(unittest.TestCase):
         self.assertEqual(cache.get("c"), 3)
 
         cache.set("d", 4)
+        cache.set("b", 5)
 
         self.assertIsNone(cache.get("a"))
         self.assertEqual(cache.get("d"), 4)
