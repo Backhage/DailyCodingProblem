@@ -45,3 +45,17 @@ def reconstruct(preorder, inorder):
     root.right = reconstruct(preorder[1 + root_i :], inorder[root_i + 1 :])
 
     return root
+
+
+# Implement this when it is time to repeat evaluate arithmetic tree
+def evaluate(root):
+    if root.val == "+":
+        return evaluate(root.left) + evaluate(root.right)
+    elif root.val == "-":
+        return evaluate(root.left) - evaluate(root.right)
+    elif root.val == "*":
+        return evaluate(root.left) * evaluate(root.right)
+    elif root.val == "/":
+        return evaluate(root.left) / evaluate(root.right)
+    else:
+        return root.val
