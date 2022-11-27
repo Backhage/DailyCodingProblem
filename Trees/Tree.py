@@ -1,3 +1,6 @@
+from collections import defaultdict, deque
+
+
 class Node:
     def __init__(self, val, left=None, right=None):
         self.val = val
@@ -59,3 +62,24 @@ def evaluate(root):
         return evaluate(root.left) / evaluate(root.right)
     else:
         return root.val
+
+
+# Implement this when it is time to repeat min sum level
+def smallest_level(root):
+    queue = deque([])
+    queue.append((root, 0))
+
+    # Create a map di accumulate the sum for each level
+    level_to_sum = defaultdict(int)
+
+    while queue:
+        node, level = queue.popleft()
+        level_to_sum[level] += node.val
+
+        if node.right:
+            queue.append((node.right, level + 1))
+
+        if node.left:
+            queue.append((node.left, level + 1))
+
+    return min(level_to_sum, key=level_to_sum.get)
