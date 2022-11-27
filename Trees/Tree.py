@@ -69,7 +69,7 @@ def smallest_level(root):
     queue = deque([])
     queue.append((root, 0))
 
-    # Create a map di accumulate the sum for each level
+    # Create a map to accumulate the sum for each level
     level_to_sum = defaultdict(int)
 
     while queue:
