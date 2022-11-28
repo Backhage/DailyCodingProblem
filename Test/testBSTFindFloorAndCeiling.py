@@ -12,3 +12,5 @@ class TestBSTFindFloorAndCeiling(unittest.TestCase):
         bst.insert(4)
 
         self.assertTupleEqual((5, 7), get_bounds(bst.root, 6))
+        self.assertTupleEqual((None, 3), get_bounds(bst.root, 2))
+        self.assertTupleEqual((7, None), get_bounds(bst.root, 8))
