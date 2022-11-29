@@ -1,12 +1,12 @@
 import unittest
 
-from Trees.BST import convert
+from Trees.BST import make_bst
 
 
 class TestConvertSortedArrayToBST(unittest.TestCase):
     def test_convertSortedArrayToBST(self):
         input = [5, 8, 13, 31, 127, 432, 440]
-        root = convert(input)
+        root = make_bst(input)
 
         def recreate_input(node, res=[]):
             if not node:

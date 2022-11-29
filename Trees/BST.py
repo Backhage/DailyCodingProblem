@@ -62,13 +62,13 @@ def get_bounds(root, x, floor=None, ceil=None):
 
 
 # Implement this when it is time to repeat Convert sorted array to BST
-def convert(array):
+def make_bst(array):
     if not array:
         return None
 
     mid = len(array) // 2
     root = Node(array[mid])
-    root.left = convert(array[:mid])
-    root.right = convert(array[mid + 1 :])
+    root.left = make_bst(array[:mid])
+    root.right = make_bst(array[mid + 1 :])
 
     return root
