@@ -72,3 +72,27 @@ def make_bst(array):
     root.right = make_bst(array[mid + 1 :])
 
     return root
+
+
+# Implement this when it is time to repeat Construct all BSTs with n nodes
+def make_trees(low, high):
+    trees = []
+
+    if low > high:
+        trees.append(None)
+        return trees
+
+    for i in range(low, high + 1):
+        left = make_trees(low, i - 1)
+        right = make_trees(i + 1, high)
+
+        for l in left:
+            for r in right:
+                node = Node(i, left=l, right=r)
+                trees.append(node)
+
+    return trees
+
+
+def construct_trees(N):
+    return make_trees(1, N)
