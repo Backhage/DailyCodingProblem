@@ -1,4 +1,5 @@
-from collections import defaultdict
+from collections import defaultdict, deque
+from string import ascii_lowercase
 
 
 # Implement these functions when it is time to repeat checking if an undirected graph has a cycle
@@ -26,7 +27,7 @@ def has_cycle(graph):
     return False
 
 
-# Implement this when it if time to repeat checking max number of edges that can be removed to create even trees
+# Implement this when it is time to repeat checking max number of edges that can be removed to create even trees
 def traverse(graph, curr, result):
     descendants = 0
 
@@ -45,3 +46,22 @@ def max_edges(graph):
     _, descendants = traverse(graph, start, vertices)
 
     return len([val for val in descendants.values() if val % 2 == 1])
+
+
+# Implement this when it is time repeat creating a stepword chain
+def stepword_chain(start, end, dictionary):
+    queue = deque([(start, [start])])
+
+    while queue:
+        word, path = queue.popleft()
+        if word == end:
+            return path
+
+        for i in range(len(word)):
+            for char in ascii_lowercase:
+                next_word = word[:i] + char + word[i + 1 :]
+                if next_word in dictionary:
+                    dictionary.remove(next_word)
+                    queue.append((next_word, path + [next_word]))
+
+    return None
