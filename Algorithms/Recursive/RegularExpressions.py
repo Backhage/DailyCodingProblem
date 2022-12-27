@@ -1,5 +1,8 @@
 def matches_first_char(s, r):
-    return len(s) > 0 and len(r) > 0 and s[0] == r[0] or (r[0] == "." and len(s) > 0)
+    if len(s) > 0 and len(r) > 0:
+        return s[0] == r[0] or r[0] == "."
+    else:
+        return False
 
 
 def matches(s, r):
@@ -12,7 +15,7 @@ def matches(s, r):
             return matches(s[1:], r[1:])
         else:
             return False
-    else:
+    elif r[1] == "*":
         # The first character is succeeded by a *.
         # First, try zero length.
         if matches(s, r[2:]):
@@ -25,5 +28,6 @@ def matches(s, r):
             if matches(s[i + 1 :], r[2:]):
                 return True
             i += 1
-
-    return False
+    else:
+        # r is empty but not s
+        return False
