@@ -25,7 +25,7 @@ class Subscribers:
         self.nums = nums
 
     def update(self, hour, value):
-        self.bit.update(hour, value - self.nums[hour])
+        self.bit.update(hour + 1, value - self.nums[hour])
         self.nums[hour] = value
 
     def query(self, start, end):
