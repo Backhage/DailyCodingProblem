@@ -25,11 +25,11 @@ def dijkstras(N, edges):
 
     q = [(0, 0)]  # start time, start node
     while q:
-        u, node = heapq.heappop(q)
+        t, node = heapq.heappop(q)
         if node not in times:
-            times[node] = u
-            for neighbor, v in graph[node]:
+            times[node] = t
+            for neighbor, w in graph[node]:
                 if neighbor not in times:
-                    heapq.heappush(q, (u + v, neighbor))
+                    heapq.heappush(q, (t + w, neighbor))
 
     return max(times.values())
