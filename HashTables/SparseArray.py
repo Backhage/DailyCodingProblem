@@ -17,7 +17,8 @@ class SparseArray:
 
     def set(self, i, val):
         self._check_bounds(i)
-        if i in self._dict and val == 0:
-            del self._dict[i]
+        if val == 0:
+            if i in self._dict:
+                del self._dict[i]
         else:
             self._dict[i] = val
