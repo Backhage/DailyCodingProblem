@@ -10,26 +10,18 @@ class Node:
 
 # Implement this when it it is time to repeat Count unival trees
 def count_unival_subtrees(root):
-    count, _ = unival_helper(root)
-    return count
-
-
-def unival_helper(root):
     if not root:
-        return 0, True
+        return 0
 
-    left_count, is_left_unival = unival_helper(root.left)
-    right_count, is_right_unival = unival_helper(root.right)
+    left_count = count_unival_subtrees(root.left)
+    right_count = count_unival_subtrees(root.right)
     total = left_count + right_count
 
-    if is_left_unival and is_right_unival:
-        if root.left and root.left.val != root.val:
-            return total, False
-        if root.right and root.right.val != root.val:
-            return total, False
-        return 1 + total, True
-
-    return total, False
+    if root.left and root.val != root.left.val:
+        return total
+    if root.right and root.val != root.right.val:
+        return total
+    return 1 + total
 
 
 # Implement this when it is time to repeat reconstructing a tree from pre-order
