@@ -23,7 +23,7 @@ def build_sequence(lengths, string):
     i = len(lengths) - 1
     j = len(lengths[0]) - 1
 
-    while i >= 0 and j >= 0:
+    while i > 0 and j > 0:
         if lengths[i][j] == lengths[i - 1][j]:
             i -= 1
         elif lengths[i][j] == lengths[i][j - 1]:
