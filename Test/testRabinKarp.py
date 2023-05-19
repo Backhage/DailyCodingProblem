@@ -9,3 +9,13 @@ class TestRabinKarp(unittest.TestCase):
         pattern = "abr"
 
         self.assertListEqual(find_matches(pattern, string), [0, 7])
+
+    def test_nomatch(self):
+        string = "aeiou"
+        pattern = "bc"
+
+        self.assertListEqual(find_matches(pattern, string), [])
+
+
+if __name__ == "__main__":
+    unittest.main()
