@@ -58,7 +58,12 @@ def search(start):
         closed.add(tuple(board.tiles))
         for successor, direction in board.get_moves():
             if tuple(successor.tiles) not in closed:
-                item = [moves + 1 + successor.heuristic, moves + 1, successor, path + direction]
+                item = [
+                    moves + 1 + successor.heuristic,
+                    moves + 1,
+                    successor,
+                    path + direction,
+                ]
                 heapq.heappush(heap, item)
 
     return float("inf"), None
