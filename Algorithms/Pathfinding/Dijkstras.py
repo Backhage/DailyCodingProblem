@@ -1,9 +1,10 @@
 import heapq
 
-# We want to create a better representation of the network nodes.
-# This class makes a graph that maps each node to a list of tuples
-# of the form (neighbor, time)
+
 class Network:
+    # We want to create a better representation of the network nodes.
+    # This class makes a graph that maps each node to a list of tuples
+    # of the form (neighbor, time)
     def __init__(self, N, edges):
         self.vertices = range(N + 1)
         self.edges = edges

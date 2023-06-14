@@ -14,4 +14,4 @@ class TestDijkstras(unittest.TestCase):
             (3, 4, 5),
             (3, 5, 10),
         ]
-        self.assertEquals(9, dijkstras(5, edges))
+        self.assertEqual(9, dijkstras(5, edges))
