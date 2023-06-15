@@ -13,14 +13,13 @@ def count_unival_subtrees(root):
     if not root:
         return 0
 
-    left_count = count_unival_subtrees(root.left)
-    right_count = count_unival_subtrees(root.right)
-    total = left_count + right_count
+    total = count_unival_subtrees(root.left) + count_unival_subtrees(root.right)
 
-    if root.left and root.val != root.left.val:
+    if root.left and root.left.val != root.val:
         return total
-    if root.right and root.val != root.right.val:
+    if root.right and root.right.val != root.val:
         return total
+
     return 1 + total
 
 
