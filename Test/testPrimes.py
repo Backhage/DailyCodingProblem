@@ -4,7 +4,11 @@ from Applications import Primes
 
 
 class TestPrimes(unittest.TestCase):
-    def test_generate_primes_less_than(self):
+    def test_primes_less_than_10(self):
+        primes = Primes.primes_less_than(10)
+        self.assertListEqual([2, 3, 5, 7], list(primes))
+
+    def test_primes_less_than_100(self):
         primes = Primes.primes_less_than(100)
         self.assertListEqual(
             [
