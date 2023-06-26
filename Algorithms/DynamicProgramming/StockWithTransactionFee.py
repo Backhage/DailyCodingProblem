@@ -1,10 +1,9 @@
 def max_profit(prices, fee):
-    n = len(prices)
     hold, free = -prices[0], 0
 
-    for i in range(1, n):
+    for price in prices[1:]:
         tmp = hold
-        hold = max(hold, free - prices[i])
-        free = max(free, tmp + prices[i] - fee)
+        hold = max(hold, free - price)
+        free = max(free, tmp + price - fee)
 
     return free
