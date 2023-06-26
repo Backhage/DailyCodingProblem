@@ -15,7 +15,3 @@ class TestRabinKarp(unittest.TestCase):
         pattern = "bc"
 
         self.assertListEqual(find_matches(pattern, string), [])
-
-
-if __name__ == "__main__":
-    unittest.main()
