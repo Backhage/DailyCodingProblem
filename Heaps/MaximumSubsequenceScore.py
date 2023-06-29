@@ -11,11 +11,11 @@ def max_score(nums1, nums2, k):
     top_k_sum = sum(top_k_heap)
     answer = top_k_sum * pairs[k - 1][1]
 
-    for pair in pairs[k:]:
+    for n1, n2 in pairs[k:]:
         top_k_sum -= heapq.heappop(top_k_heap)
-        top_k_sum += pair[0]
-        heapq.heappush(top_k_heap, pair[0])
+        top_k_sum += n1
+        heapq.heappush(top_k_heap, n1)
 
-        answer = max(answer, top_k_sum * pair[1])
+        answer = max(answer, top_k_sum * n2)
 
     return answer
