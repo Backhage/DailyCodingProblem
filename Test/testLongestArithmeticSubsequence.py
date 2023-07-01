@@ -27,3 +27,11 @@ class TestLongestArithmeticSubsequence(unittest.TestCase):
             expected_result,
             LongestArithmeticSubsequence.longest_arithmetic_subsequence(input),
         )
+
+    def test_leetcode_4(self):
+        input = [83, 20, 17, 43, 52, 78, 68, 45]
+        expected_result = 2
+        self.assertEqual(
+            expected_result,
+            LongestArithmeticSubsequence.longest_arithmetic_subsequence(input),
+        )
