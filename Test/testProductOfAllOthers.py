@@ -13,7 +13,3 @@ class TestProductOfAllOthers(unittest.TestCase):
         input = [3, 2, 1]
         expectedResult = [2, 3, 6]
         self.assertListEqual(products(input), expectedResult)
-
-
-if __name__ == "__main__":
-    unittest.main()
