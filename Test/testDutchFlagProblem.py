@@ -8,3 +8,8 @@ class TestDutchFlagProblem(unittest.TestCase):
         arr = ["G", "B", "R", "R", "B", "R", "G"]
         partition(arr)
         self.assertListEqual(["R", "R", "R", "G", "G", "B", "B"], arr)
+
+    def test_verifyCorrectIncrement(self):
+        arr = ["R", "G", "R", "B", "R"]
+        partition(arr)
+        self.assertListEqual(["R", "R", "R", "G", "B"], arr)
