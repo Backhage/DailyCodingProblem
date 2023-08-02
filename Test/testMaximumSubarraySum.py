@@ -13,7 +13,3 @@ class TestMaximumSubarraySum(unittest.TestCase):
         input = [-5, -1, -8, -9]
         expectedResult = 0
         self.assertEqual(max_subarray_sum(input), expectedResult)
-
-
-if __name__ == "__main__":
-    unittest.main()
